@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e39037be-fc79-44a8-81be-923f8ba7eeaf" name="Default Changelist" comment="" />
+    <list default="true" id="e39037be-fc79-44a8-81be-923f8ba7eeaf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Edge.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="DS_FinalProject" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -14,7 +23,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1nmDUE2m8cbipKn9v3Jrx0wRI2k" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -22,6 +35,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RunManager">
@@ -51,5 +65,25 @@
       <screen x="0" y="0" width="1440" height="836" />
     </state>
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.836@0.0.1440.836" timestamp="1611986574559" />
+    <state width="1398" height="603" key="GridCell.Tab.0.bottom" timestamp="1612035885139">
+      <screen x="0" y="0" width="1440" height="836" />
+    </state>
+    <state width="1398" height="603" key="GridCell.Tab.0.bottom/0.0.1440.836@0.0.1440.836" timestamp="1612035885139" />
+    <state width="1398" height="310" key="GridCell.Tab.0.bottom/0.23.1440.813@0.23.1440.813" timestamp="1612035839182" />
+    <state width="1398" height="603" key="GridCell.Tab.0.center" timestamp="1612035885136">
+      <screen x="0" y="0" width="1440" height="836" />
+    </state>
+    <state width="1398" height="603" key="GridCell.Tab.0.center/0.0.1440.836@0.0.1440.836" timestamp="1612035885136" />
+    <state width="1398" height="310" key="GridCell.Tab.0.center/0.23.1440.813@0.23.1440.813" timestamp="1612035839179" />
+    <state width="1398" height="603" key="GridCell.Tab.0.left" timestamp="1612035885134">
+      <screen x="0" y="0" width="1440" height="836" />
+    </state>
+    <state width="1398" height="603" key="GridCell.Tab.0.left/0.0.1440.836@0.0.1440.836" timestamp="1612035885134" />
+    <state width="1398" height="310" key="GridCell.Tab.0.left/0.23.1440.813@0.23.1440.813" timestamp="1612035839174" />
+    <state width="1398" height="603" key="GridCell.Tab.0.right" timestamp="1612035885138">
+      <screen x="0" y="0" width="1440" height="836" />
+    </state>
+    <state width="1398" height="603" key="GridCell.Tab.0.right/0.0.1440.836@0.0.1440.836" timestamp="1612035885138" />
+    <state width="1398" height="310" key="GridCell.Tab.0.right/0.23.1440.813@0.23.1440.813" timestamp="1612035839181" />
   </component>
 </project>
