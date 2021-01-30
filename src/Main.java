@@ -3,11 +3,22 @@ import java.util.* ;
 
 public class Main {
 
+    public static Vertex findVertex(int id , ArrayList<Vertex> vertexes){
+        for(Vertex v : vertexes){
+            if(v.getId()==id){
+                return v ;
+            }
+        }
+        return null ;
+    }
+
     public static void main(String[] args) {
         int n , m ; //n=vertexes , m=edges
-        HashMap<Integer,ArrayList<Double>> places = new HashMap<>();// id , position
-        ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
+        int traffic , t=0 ;
+        ArrayList<ArrayList<Vertex>> adjList = new ArrayList<>();
         HashMap<Integer,Integer> indexes = new HashMap<>();//id , index
+        ArrayList<Vertex> vertexes = new ArrayList<>();
+
 
         Scanner scanner = new Scanner(System.in);
         String nStr = scanner.next();
@@ -27,17 +38,15 @@ public class Main {
             String xStr = scanner.next();
             x = Double.parseDouble(xStr);
 
-            ArrayList<Double> xy = new ArrayList<>();
-            xy.add(x);
-            xy.add(y);
+            Vertex vertex = new Vertex(x,y,id);
 
-            places.put(id , xy);
             indexes.put(id,i);
+            vertexes.add(vertex);
 
         }
 
         for(int i=0 ; i<n ; i++){
-            ArrayList<Integer> list = new ArrayList<>();
+            ArrayList<Vertex> list = new ArrayList<>();
             adjList.add(list);
         }
 
@@ -49,15 +58,29 @@ public class Main {
             int id2 = Integer.parseInt(id2Str);
 
             int index1 = indexes.get(id1);
-            adjList.get(index1).add(id2);
+            Vertex vertex1 = findVertex(id1,vertexes);
 
             int index2 = indexes.get(id2);
-            adjList.get(index2).add(id1);
+            Vertex vertex2 = findVertex(id2,vertexes);
+
+            adjList.get(index1).add(vertex2);
+            adjList.get(index2).add(vertex1);
 
         }
 
-        System.out.println(indexes);
-        System.out.println(adjList);
+        while(scanner.hasNextLine()){
+            String line = scanner.nextLine();
+            String[] str = line.split(" ");
+            int time = Integer.parseInt(str[0]);
+            int src = Integer.parseInt(str[1]);
+            int dst = Integer.parseInt(str[2]);
+
+            if(t==0)//for the first command
+                traffic = 0 ;
+            else if(t<time){ //traffic should be considered
+
+            }
+        }
 
     }
 }
