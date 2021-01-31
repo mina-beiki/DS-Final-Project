@@ -4,12 +4,25 @@ public class Edge {
     private double weight ;
     private Vertex v1 ;
     private Vertex v2 ;
+    private int traffic ;
+    private double length ;
 
 
     public Edge(double weight, Vertex v1, Vertex v2) {
         this.weight = weight;
         this.v1 = v1;
         this.v2 = v2;
+        traffic = 0 ;
+        double x1=this.getV1().getX();
+        double x2=this.getV2().getX();
+        double y1=this.getV1().getY();
+        double y2=this.getV2().getY();
+
+        length = Math.sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
+    }
+
+    public double getLength() {
+        return length;
     }
 
     public double getWeight() {

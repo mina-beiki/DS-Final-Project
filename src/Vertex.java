@@ -4,11 +4,26 @@ public class Vertex {
     private double x ;
     private double y ;
     private int id ;
+    private double dist ;
+    private Vertex prev ;
+    private boolean explored ;
 
     public Vertex(double x, double y, int id) {
         this.x = x;
         this.y = y;
         this.id = id;
+        dist = Double.POSITIVE_INFINITY ;
+        prev = null ;
+        explored = false;
+
+    }
+
+    public boolean isExplored() {
+        return explored;
+    }
+
+    public void setDist(double dist) {
+        this.dist = dist;
     }
 
     public double getX() {

@@ -18,6 +18,7 @@ public class Main {
         ArrayList<ArrayList<Vertex>> adjList = new ArrayList<>();
         HashMap<Integer,Integer> indexes = new HashMap<>();//id , index
         ArrayList<Vertex> vertexes = new ArrayList<>();
+        ArrayList<Edge> edges = new ArrayList<>();
 
 
         Scanner scanner = new Scanner(System.in);
@@ -66,19 +67,40 @@ public class Main {
             adjList.get(index1).add(vertex2);
             adjList.get(index2).add(vertex1);
 
+            Edge edge1 = new Edge(0,vertex1,vertex2);
+            Edge edge2 = new Edge(0,vertex2,vertex1);
+
+            edges.add(edge1);
+            edges.add(edge2);
+
         }
 
+        traffic = 0 ;
         while(scanner.hasNextLine()){
+            //set all explored and dist to default
             String line = scanner.nextLine();
             String[] str = line.split(" ");
             int time = Integer.parseInt(str[0]);
-            int src = Integer.parseInt(str[1]);
-            int dst = Integer.parseInt(str[2]);
+            int srcID = Integer.parseInt(str[1]);
+            int dstID = Integer.parseInt(str[2]);
 
-            if(t==0)//for the first command
-                traffic = 0 ;
-            else if(t<time){ //traffic should be considered
+            //TO_DO : handle traffic and time here
 
+
+
+            //update weights for each edge :
+            for(Edge edge : edges){
+                double weight = edge.getLength() * (1 + 0.3 * traffic);
+                edge.setWeight(weight);
+            }
+
+            //for each path :
+            Vertex src = findVertex(srcID,vertexes);
+            Vertex dst = findVertex(dstID,vertexes);
+
+            src.setDist(0);
+            while(!dst.isExplored()){
+                MinHeap 
             }
         }
 
