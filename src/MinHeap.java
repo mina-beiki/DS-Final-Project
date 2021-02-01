@@ -1,13 +1,17 @@
 import java.util.* ;
 public class MinHeap {
-    private int[] Heap;
+    private double[] Heap;
     private int index;
     private int size;
 
     public MinHeap(int size) {
         this.size = size;
         this.index = 0;
-        Heap = new int[size];
+        Heap = new double[size];
+    }
+
+    public double[] getHeap() {
+        return Heap;
     }
 
     private int parent(int i) {
@@ -29,7 +33,7 @@ public class MinHeap {
         return false;
     }
 
-    public void insert(int element) {
+    public void insert(double element) {
         if (index >= size) {
             return;
         }
@@ -44,9 +48,9 @@ public class MinHeap {
     }
 
     // removes and returns the minimum element from the heap
-    public int remove() {
+    public double remove() {
         // since its a min heap, so root = minimum
-        int popped = Heap[0];
+        double popped = Heap[0];
         Heap[0] = Heap[--index];
         minHeapify(0);
         return popped;
@@ -69,9 +73,26 @@ public class MinHeap {
         }
     }
 
+    public int getNodeIndex(double dist){
+        for(int i=0 ; i<size ; i++){
+            if(Heap[i]==dist){
+                return i ;
+            }
+        }
+        return 0 ;
+    }
+
+    public void deleteNode(int i){
+        //delete the node from array and put the rightest node in place of it :
+        double rightest = Heap[index];
+        Heap[i] = rightest ;
+        //min heapify :
+        minHeap();
+    }
+
     // builds the min-heap using the minHeapify
     public void minHeap() {
-        for (int i = (index - 1 / 2); i >= 1; i--) {
+        for (int i = ((index - 1 )/ 2); i >= 1; i--) { //not sure ?
             minHeapify(i);
         }
     }
@@ -90,9 +111,13 @@ public class MinHeap {
 
     // swaps two nodes of the heap
     private void swap(int x, int y) {
-        int tmp;
+        double tmp;
         tmp = Heap[x];
         Heap[x] = Heap[y];
         Heap[y] = tmp;
+    }
+
+    public double getRoot (){
+        return Heap[0];
     }
 }

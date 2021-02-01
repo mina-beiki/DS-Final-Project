@@ -18,6 +18,14 @@ public class Vertex {
 
     }
 
+    public void setExplored(boolean explored) {
+        this.explored = explored;
+    }
+
+    public double getDist() {
+        return dist;
+    }
+
     public boolean isExplored() {
         return explored;
     }
