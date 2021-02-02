@@ -30,16 +30,7 @@ public class Main {
         return null ;
     }
 
-    public static int getNodeIndex(PriorityQueue<Double> minHeap , double dist){
-        int i = 0 ;
-        for(Double d : minHeap){
-            if(d==dist){
-                return i ;
-            }
-            i++;
-        }
-        return 0 ;
-    }
+
 
     public static void main(String[] args) {
         int n , m ; //n=vertexes , m=edges
@@ -48,9 +39,9 @@ public class Main {
         HashMap<Integer,Integer> indexes = new HashMap<>();//id , index ; indexes for adjList
         ArrayList<Vertex> vertexes = new ArrayList<>();
         ArrayList<Edge> edges = new ArrayList<>();
-        HashMap<Vertex,Integer> heapIndexes = new HashMap<>();//unexplored vertex, index in minHeap
         ArrayList<Path> paths = new ArrayList<>();
         ArrayList<Double> times = new ArrayList<>();
+        HashMap<Vertex,Integer> heapIndexes ;//vertex , index in minHeap
 
 
 
@@ -116,7 +107,6 @@ public class Main {
                 v.reset();
             }
 
-
             String line = scanner.nextLine();
             String[] str = line.split(" ");
             int time = Integer.parseInt(str[0]);
@@ -144,32 +134,26 @@ public class Main {
             }
 
             //for each path :
+            heapIndexes = new HashMap<>();
             Path path = new Path();
             Vertex src = findVertex(srcID,vertexes);
             Vertex dst = findVertex(dstID,vertexes);
 
             src.setDist(0);
-            PriorityQueue<Double> distHeap = new PriorityQueue<>();
-            for(Vertex v : vertexes){
-                distHeap.add(v.getDist());
-            }
+            heapIndexes.put(src,0);
+            MinHeap distHeap = new MinHeap(n);
+//            for(Vertex v : vertexes){
+//                distHeap.insert(v.getDist());
+//            }
+            distHeap.insert(src.getDist());
+            distHeap.minHeap();
+            /*//save info to heapIndexes :
+            for(Double dist : distHeap.getHeap()){
+                Vertex vertex = findVertexByDist(dist,vertexes);
+                heapIndexes.put(vertex,i);
+                i++ ;
+            }*/
 
-            //save info to heapIndexes :
-            int i=0;
-
-            for (Double dist : distHeap) {
-                Vertex vertex = findVertexByDist(dist, vertexes);
-                heapIndexes.put(vertex, i);
-                i++;
-            }
-
-            //print dist heap :
-            /*Object[] arr = distHeap.toArray();
-            System.out.println("Value in array: ");
-            for (int j = 0; j < arr.length; j++)
-                System.out.println("Value: " + arr[j].toString());*/
-
-        ////////////////////////
 
             while(!dst.isExplored()){
                 //remove v from min heap cause it is explored
@@ -178,6 +162,7 @@ public class Main {
                 System.out.println(v+" is explored.");
                 path.insertVertex(v);
                 //update index hashmap :
+                //distHeap.deleteNode(heapIndexes.get(v));
                 heapIndexes.remove(v);
 
                 int vIndex = indexes.get(v.getId());
@@ -186,18 +171,25 @@ public class Main {
                     if(v.getDist() + vwEdge.getWeight() < w.getDist()){
                         w.setDist(v.getDist() + vwEdge.getWeight());
                         //find w index in minheap using hashmap :
-                        int wIndex = heapIndexes.get(w);
                         //update min heap:
-                        distHeap.remove(wIndex);
-                        heapIndexes.remove(w);
-                        distHeap.add(w.getDist());
-                        heapIndexes.put(w,getNodeIndex(distHeap,w.getDist()));
+                        if(heapIndexes.containsKey(w)){
+                            int wIndex = heapIndexes.get(w);
+                            distHeap.deleteNode(wIndex);
+                            heapIndexes.remove(w);
+                        }
+                        distHeap.insert(w.getDist());
+                        distHeap.minHeap();
+                        heapIndexes.put(w,distHeap.getNodeIndex(w.getDist()));
                     }
                 }
             }
-            paths.add(path);
-            path.insertEdges(edges);
+            System.out.println("path : ");
+            for(Vertex v : path.getVertices()){
+                System.out.print(v+" ");
+            }
+            path.insertEdges();
             path.increaseTraffics();
+            paths.add(path);
 
             //calculate time :
             double totalTime = 0;
@@ -207,9 +199,6 @@ public class Main {
             totalTime = 120 * totalTime;
             times.add(totalTime);
 
-            //System.out.println("path= "+path.getVertices());
-
-            ///////////////////
         }
 
     }

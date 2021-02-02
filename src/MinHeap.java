@@ -33,7 +33,7 @@ public class MinHeap {
         return false;
     }
 
-    public void insert(double element) {
+    public void insert(double element ) {
         if (index >= size) {
             return;
         }
@@ -75,16 +75,8 @@ public class MinHeap {
         }
     }
 
-    public int getNodeIndex(double dist){
-        for(int i=0 ; i<size ; i++){
-            if(Heap[i]==dist){
-                return i ;
-            }
-        }
-        return 0 ;
-    }
 
-    public void deleteNode(int i){
+    public void deleteNode(int i ){
         //delete the node from array and put the rightest node in place of it :
         double rightest = Heap[index];
         Heap[i] = rightest ;
@@ -122,4 +114,18 @@ public class MinHeap {
     public double getRoot (){
         return Heap[0];
     }
+
+    public int getNodeIndex(double dist){
+        for(int i=0 ; i<size ; i++){
+            if(Heap[i]==dist){
+                return i ;
+            }
+        }
+        return 0 ;
+    }
+
+    public double getMin (){
+        return Heap[0];
+    }
+
 }

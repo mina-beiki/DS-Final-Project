@@ -27,10 +27,11 @@ public class Path {
         this.vertices = vertices;
     }
 
-    public void insertEdges(ArrayList<Edge> allEdges){
-        for(int i=0 ; i<vertices.size() ; i++){
+    public void insertEdges(){
+        for(int i=0 ; i<vertices.size()-1 ; i++){
             Vertex v1 = vertices.get(i);
             Vertex v2 = vertices.get(i+1);
+
             for(Edge e : edges){
                 if((e.getV1().equals(v1) && e.getV2().equals(v2))||e.getV2().equals(v1) && e.getV1().equals(v2)){
                     edges.add(e);
