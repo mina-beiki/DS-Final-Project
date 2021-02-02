@@ -30,6 +30,15 @@ public class Main {
         return null ;
     }
 
+    public static int getNodeIndex(PriorityQueue<Double> heap , double dist){
+        int i = 0 ;
+        for(Double d : heap){
+            if(d==dist){
+                return i ;
+            }
+        }
+        return 0 ;
+    }
 
 
     public static void main(String[] args) {
@@ -139,28 +148,16 @@ public class Main {
 
             src.setDist(0);
             heapIndexes.put(src,0);
-            MinHeap distHeap = new MinHeap(n);
-//            for(Vertex v : vertexes){
-//                distHeap.insert(v.getDist());
-//            }
-            distHeap.insert(src.getDist());
-            distHeap.minHeap();
-            /*//save info to heapIndexes :
-            for(Double dist : distHeap.getHeap()){
-                Vertex vertex = findVertexByDist(dist,vertexes);
-                heapIndexes.put(vertex,i);
-                i++ ;
-            }*/
+            PriorityQueue<Double> distHeap = new PriorityQueue<>();
 
+            distHeap.add(src.getDist());
 
             while(!dst.isExplored()){
                 //remove v from min heap cause it is explored
-                Vertex v = findVertexByDist(distHeap.getMin(),vertexes);
+                Vertex v = findVertexByDist(distHeap.peek(),vertexes);
                 v.setExplored(true);
                 //update index hashmap :
-                Integer test = heapIndexes.get(v);
-                System.out.println(test);
-                distHeap.deleteNode(heapIndexes.get(v));
+                distHeap.remove(v.getDist());
                 heapIndexes.remove(v);
 
                 int vIndex = indexes.get(v.getId());
@@ -172,12 +169,11 @@ public class Main {
                         //update min heap:
                         if(heapIndexes.containsKey(w)){
                             int wIndex = heapIndexes.get(w);
-                            distHeap.deleteNode(wIndex);
+                            distHeap.remove(w.getDist());
                             heapIndexes.remove(w);
                         }
-                        distHeap.insert(w.getDist());
-                        distHeap.minHeap();
-                        heapIndexes.put(w,distHeap.getNodeIndex(w.getDist()));
+                        distHeap.add(w.getDist());
+                        heapIndexes.put(w,getNodeIndex(distHeap,w.getDist()));
                         w.setPrev(v);
                     }
                 }
@@ -194,14 +190,14 @@ public class Main {
                 path.insertVertex(vertex.getPrev());
                 vertex = vertex.getPrev();
             }
-            path.insertVertex(src);
+            //path.insertVertex(src);
             path.reverseVertices();
 
             System.out.println("path : ");
             for(Vertex v : path.getVertices()){
                 System.out.print(v+" ");
             }
-            path.insertEdges();
+            path.insertEdges(edges);
             path.increaseTraffics();
             paths.add(path);
 
@@ -212,6 +208,8 @@ public class Main {
             }
             totalTime = 120 * totalTime;
             times.add(totalTime);
+            System.out.println("time = "+totalTime);
+            System.out.println("////////");
 
         }
 
