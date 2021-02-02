@@ -51,8 +51,10 @@ public class MinHeap {
     public double remove() {
         // since its a min heap, so root = minimum
         double popped = Heap[0];
-        Heap[0] = Heap[--index];
-        minHeapify(0);
+        if(index>0) {
+            Heap[0] = Heap[--index];
+            minHeapify(0);
+        }
         return popped;
     }
 

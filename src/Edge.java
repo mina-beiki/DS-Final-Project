@@ -21,6 +21,7 @@ public class Edge {
         length = Math.sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
     }
 
+
     public double getLength() {
         return length;
     }
@@ -49,6 +50,15 @@ public class Edge {
         this.v2 = v2;
     }
 
+
+    @Override
+    public String toString() {
+        return "Edge{" +
+                "v1=" + v1 +
+                ", v2=" + v2 +
+                '}';
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,5 +72,13 @@ public class Edge {
     @Override
     public int hashCode() {
         return Objects.hash(getWeight(), getV1(), getV2());
+    }
+
+    public int getTraffic() {
+        return traffic;
+    }
+
+    public void setTraffic(int traffic) {
+        this.traffic = traffic;
     }
 }

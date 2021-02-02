@@ -18,6 +18,11 @@ public class Vertex {
 
     }
 
+    public void reset(){
+        this.dist = Double.POSITIVE_INFINITY ;
+        this.explored = false ;
+    }
+
     public void setExplored(boolean explored) {
         this.explored = explored;
     }
@@ -58,6 +63,7 @@ public class Vertex {
         this.id = id;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -76,9 +82,7 @@ public class Vertex {
     @Override
     public String toString() {
         return "Vertex{" +
-                "x=" + x +
-                ", y=" + y +
-                ", id=" + id +
+                "id=" + id +
                 '}';
     }
 }
