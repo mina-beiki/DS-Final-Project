@@ -43,8 +43,6 @@ public class Main {
         ArrayList<Double> times = new ArrayList<>();
         HashMap<Vertex,Integer> heapIndexes ;//vertex , index in minHeap
 
-
-
         Scanner scanner = new Scanner(System.in);
         String nStr = scanner.next();
         String mStr = scanner.next();
@@ -157,12 +155,12 @@ public class Main {
 
             while(!dst.isExplored()){
                 //remove v from min heap cause it is explored
-                Vertex v = findVertexByDist(distHeap.remove(),vertexes);
+                Vertex v = findVertexByDist(distHeap.getMin(),vertexes);
                 v.setExplored(true);
-                System.out.println(v+" is explored.");
-                path.insertVertex(v);
                 //update index hashmap :
-                //distHeap.deleteNode(heapIndexes.get(v));
+                Integer test = heapIndexes.get(v);
+                System.out.println(test);
+                distHeap.deleteNode(heapIndexes.get(v));
                 heapIndexes.remove(v);
 
                 int vIndex = indexes.get(v.getId());
@@ -180,9 +178,25 @@ public class Main {
                         distHeap.insert(w.getDist());
                         distHeap.minHeap();
                         heapIndexes.put(w,distHeap.getNodeIndex(w.getDist()));
+                        w.setPrev(v);
                     }
                 }
             }
+
+            for(Vertex v : vertexes){
+                System.out.println("vertex = "+ v);
+                System.out.println("prev = "+v.getPrev());
+            }
+            //add vertices to path :
+            Vertex vertex = dst;
+            path.insertVertex(dst);
+            while(vertex!=src){
+                path.insertVertex(vertex.getPrev());
+                vertex = vertex.getPrev();
+            }
+            path.insertVertex(src);
+            path.reverseVertices();
+
             System.out.println("path : ");
             for(Vertex v : path.getVertices()){
                 System.out.print(v+" ");

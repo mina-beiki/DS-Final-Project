@@ -58,4 +58,8 @@ public class Path {
         vertices.add(v);
     }
 
+    public void reverseVertices (){
+        Collections.reverse(vertices);
+    }
+
 }

@@ -1,4 +1,5 @@
-import java.util.* ;
+import java.util.*;
+
 public class MinHeap {
     private double[] Heap;
     private int index;
@@ -33,7 +34,7 @@ public class MinHeap {
         return false;
     }
 
-    public void insert(double element ) {
+    public void insert(double element) {
         if (index >= size) {
             return;
         }
@@ -47,7 +48,7 @@ public class MinHeap {
         index++;
     }
 
-    // removes and returns the minimum element from the heap
+   /* // removes and returns the minimum element from the heap
     public double remove() {
         // since its a min heap, so root = minimum
         double popped = Heap[0];
@@ -55,8 +56,11 @@ public class MinHeap {
             Heap[0] = Heap[--index];
             minHeapify(0);
         }
+        if(index==0){
+
+        }
         return popped;
-    }
+    }*/
 
     // heapify the node at i
     private void minHeapify(int i) {
@@ -76,17 +80,20 @@ public class MinHeap {
     }
 
 
-    public void deleteNode(int i ){
-        //delete the node from array and put the rightest node in place of it :
-        double rightest = Heap[index];
-        Heap[i] = rightest ;
-        //min heapify :
-        minHeap();
+    public void deleteNode(int i) {
+
+            //delete the node from array and put the rightest node in place of it :
+
+            double rightest = Heap[--index];
+            Heap[i] = rightest;
+            //min heapify :
+            minHeap();
+
     }
 
     // builds the min-heap using the minHeapify
     public void minHeap() {
-        for (int i = ((index - 1 )/ 2); i >= 1; i--) { //not sure ?
+        for (int i = ((index - 1) / 2); i >= 1; i--) { //not sure ?
             minHeapify(i);
         }
     }
@@ -111,20 +118,20 @@ public class MinHeap {
         Heap[y] = tmp;
     }
 
-    public double getRoot (){
+    public double getRoot() {
         return Heap[0];
     }
 
-    public int getNodeIndex(double dist){
-        for(int i=0 ; i<size ; i++){
-            if(Heap[i]==dist){
-                return i ;
+    public int getNodeIndex(double dist) {
+        for (int i = 0; i < size; i++) {
+            if (Heap[i] == dist) {
+                return i;
             }
         }
-        return 0 ;
+        return 0;
     }
 
-    public double getMin (){
+    public double getMin() {
         return Heap[0];
     }
 

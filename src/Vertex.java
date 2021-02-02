@@ -18,6 +18,14 @@ public class Vertex {
 
     }
 
+    public Vertex getPrev() {
+        return prev;
+    }
+
+    public void setPrev(Vertex prev) {
+        this.prev = prev;
+    }
+
     public void reset(){
         this.dist = Double.POSITIVE_INFINITY ;
         this.explored = false ;
