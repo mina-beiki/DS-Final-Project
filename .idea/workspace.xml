@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DS_FinalProject/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DS_FinalProject/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Path.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Path.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,25 +67,25 @@
       <screen x="0" y="0" width="1440" height="836" />
     </state>
     <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser/0.0.1440.836@0.0.1440.836" timestamp="1612296184892" />
-    <state width="1398" height="392" key="GridCell.Tab.0.bottom" timestamp="1612302429531">
-      <screen x="0" y="0" width="1440" height="836" />
+    <state width="1398" height="539" key="GridCell.Tab.0.bottom" timestamp="1612388280961">
+      <screen x="0" y="23" width="1440" height="813" />
     </state>
-    <state width="1398" height="392" key="GridCell.Tab.0.bottom/0.0.1440.836@0.0.1440.836" timestamp="1612302429531" />
-    <state width="1398" height="392" key="GridCell.Tab.0.bottom/0.23.1440.813@0.23.1440.813" timestamp="1612302352696" />
-    <state width="1398" height="392" key="GridCell.Tab.0.center" timestamp="1612302429527">
-      <screen x="0" y="0" width="1440" height="836" />
+    <state width="1398" height="344" key="GridCell.Tab.0.bottom/0.0.1440.836@0.0.1440.836" timestamp="1612388121819" />
+    <state width="1398" height="539" key="GridCell.Tab.0.bottom/0.23.1440.813@0.23.1440.813" timestamp="1612388280961" />
+    <state width="1398" height="539" key="GridCell.Tab.0.center" timestamp="1612388280958">
+      <screen x="0" y="23" width="1440" height="813" />
     </state>
-    <state width="1398" height="392" key="GridCell.Tab.0.center/0.0.1440.836@0.0.1440.836" timestamp="1612302429527" />
-    <state width="1398" height="392" key="GridCell.Tab.0.center/0.23.1440.813@0.23.1440.813" timestamp="1612302352681" />
-    <state width="1398" height="392" key="GridCell.Tab.0.left" timestamp="1612302429526">
-      <screen x="0" y="0" width="1440" height="836" />
+    <state width="1398" height="344" key="GridCell.Tab.0.center/0.0.1440.836@0.0.1440.836" timestamp="1612388121816" />
+    <state width="1398" height="539" key="GridCell.Tab.0.center/0.23.1440.813@0.23.1440.813" timestamp="1612388280958" />
+    <state width="1398" height="539" key="GridCell.Tab.0.left" timestamp="1612388280957">
+      <screen x="0" y="23" width="1440" height="813" />
     </state>
-    <state width="1398" height="392" key="GridCell.Tab.0.left/0.0.1440.836@0.0.1440.836" timestamp="1612302429526" />
-    <state width="1398" height="392" key="GridCell.Tab.0.left/0.23.1440.813@0.23.1440.813" timestamp="1612302352678" />
-    <state width="1398" height="392" key="GridCell.Tab.0.right" timestamp="1612302429529">
-      <screen x="0" y="0" width="1440" height="836" />
+    <state width="1398" height="344" key="GridCell.Tab.0.left/0.0.1440.836@0.0.1440.836" timestamp="1612388121814" />
+    <state width="1398" height="539" key="GridCell.Tab.0.left/0.23.1440.813@0.23.1440.813" timestamp="1612388280957" />
+    <state width="1398" height="539" key="GridCell.Tab.0.right" timestamp="1612388280960">
+      <screen x="0" y="23" width="1440" height="813" />
     </state>
-    <state width="1398" height="392" key="GridCell.Tab.0.right/0.0.1440.836@0.0.1440.836" timestamp="1612302429529" />
-    <state width="1398" height="392" key="GridCell.Tab.0.right/0.23.1440.813@0.23.1440.813" timestamp="1612302352693" />
+    <state width="1398" height="344" key="GridCell.Tab.0.right/0.0.1440.836@0.0.1440.836" timestamp="1612388121817" />
+    <state width="1398" height="539" key="GridCell.Tab.0.right/0.23.1440.813@0.23.1440.813" timestamp="1612388280960" />
   </component>
 </project>

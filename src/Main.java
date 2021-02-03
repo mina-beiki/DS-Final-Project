@@ -49,6 +49,7 @@ public class Main {
         ArrayList<Vertex> vertexes = new ArrayList<>();
         ArrayList<Edge> edges = new ArrayList<>();
         ArrayList<Path> paths = new ArrayList<>();
+        ArrayList<Double> delayTimes = new ArrayList<>();
         ArrayList<Double> times = new ArrayList<>();
         HashMap<Vertex,Integer> heapIndexes ;//vertex , index in minHeap
 
@@ -116,7 +117,7 @@ public class Main {
 
             String line = scanner.nextLine();
             String[] str = line.split(" ");
-            int time = Integer.parseInt(str[0]);
+            double time = Double.parseDouble(str[0]);
             int srcID = Integer.parseInt(str[1]);
             int dstID = Integer.parseInt(str[2]);
 
@@ -147,6 +148,7 @@ public class Main {
             Vertex dst = findVertex(dstID,vertexes);
 
             src.setDist(0);
+            src.setPrev(null);
             heapIndexes.put(src,0);
             PriorityQueue<Double> distHeap = new PriorityQueue<>();
 
@@ -156,6 +158,7 @@ public class Main {
                 //remove v from min heap cause it is explored
                 Vertex v = findVertexByDist(distHeap.peek(),vertexes);
                 v.setExplored(true);
+                //System.out.println(v+" is explored , prev = "+v.getPrev());
                 //update index hashmap :
                 distHeap.remove(v.getDist());
                 heapIndexes.remove(v);
@@ -168,7 +171,6 @@ public class Main {
                         //find w index in minheap using hashmap :
                         //update min heap:
                         if(heapIndexes.containsKey(w)){
-                            int wIndex = heapIndexes.get(w);
                             distHeap.remove(w.getDist());
                             heapIndexes.remove(w);
                         }
@@ -207,8 +209,9 @@ public class Main {
                 totalTime += e.getWeight();
             }
             totalTime = 120 * totalTime;
-            times.add(totalTime);
+            delayTimes.add(totalTime);
             System.out.println("time = "+totalTime);
+            times.add(totalTime + time);
             System.out.println("////////");
 
         }
