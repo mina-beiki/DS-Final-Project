@@ -167,13 +167,12 @@ public class Main {
                 for(Vertex w : adjList.get(vIndex)){
                     Edge vwEdge = findEdge(v,w,edges);
                     if(v.getDist() + vwEdge.getWeight() < w.getDist()){
-                        w.setDist(v.getDist() + vwEdge.getWeight());
-                        //find w index in minheap using hashmap :
-                        //update min heap:
                         if(heapIndexes.containsKey(w)){
                             distHeap.remove(w.getDist());
                             heapIndexes.remove(w);
                         }
+                        w.setDist(v.getDist() + vwEdge.getWeight());
+
                         distHeap.add(w.getDist());
                         heapIndexes.put(w,getNodeIndex(distHeap,w.getDist()));
                         w.setPrev(v);
@@ -181,10 +180,6 @@ public class Main {
                 }
             }
 
-            for(Vertex v : vertexes){
-                System.out.println("vertex = "+ v);
-                System.out.println("prev = "+v.getPrev());
-            }
             //add vertices to path :
             Vertex vertex = dst;
             path.insertVertex(dst);
