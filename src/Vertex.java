@@ -3,12 +3,12 @@ import java.util.Objects;
 public class Vertex {
     private double x ;
     private double y ;
-    private int id ;
+    private long id ;
     private double dist ;
     private Vertex prev ;
     private boolean explored ;
 
-    public Vertex(double x, double y, int id) {
+    public Vertex(double x, double y, long id) {
         this.x = x;
         this.y = y;
         this.id = id;
@@ -63,11 +63,11 @@ public class Vertex {
         this.y = y;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

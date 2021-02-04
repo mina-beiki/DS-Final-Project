@@ -3,7 +3,7 @@ import java.util.* ;
 
 public class Main {
 
-    public static Vertex findVertex(int id , ArrayList<Vertex> vertexes){
+    public static Vertex findVertex(long id , ArrayList<Vertex> vertexes){
         for(Vertex v : vertexes){
             if(v.getId()==id){
                 return v ;
@@ -45,7 +45,7 @@ public class Main {
         int n , m ; //n=vertexes , m=edges
         int traffic ;
         ArrayList<ArrayList<Vertex>> adjList = new ArrayList<>();
-        HashMap<Integer,Integer> indexes = new HashMap<>();//id , index ; indexes for adjList
+        HashMap<Long,Integer> indexes = new HashMap<>();//id , index ; indexes for adjList
         ArrayList<Vertex> vertexes = new ArrayList<>();
         ArrayList<Edge> edges = new ArrayList<>();
         ArrayList<Path> paths = new ArrayList<>();
@@ -60,10 +60,10 @@ public class Main {
         m = Integer.parseInt(mStr);
 
         for(int i=0 ; i<n ; i++){
-            int id  ;
+            long id  ;
             double x , y ;
             String idStr = scanner.next();
-            id = Integer.parseInt(idStr);
+            id = Long.parseLong(idStr);
 
             String yStr = scanner.next();
             y = Double.parseDouble(yStr);
@@ -87,8 +87,8 @@ public class Main {
             String id1Str = scanner.next();
             String id2Str = scanner.next();
 
-            int id1 = Integer.parseInt(id1Str);
-            int id2 = Integer.parseInt(id2Str);
+            long id1 = Long.parseLong(id1Str);
+            long id2 = Long.parseLong(id2Str);
 
             int index1 = indexes.get(id1);
             Vertex vertex1 = findVertex(id1,vertexes);
@@ -118,10 +118,10 @@ public class Main {
             String line = scanner.nextLine();
             String[] str = line.split(" ");
             double time = Double.parseDouble(str[0]);
-            int srcID = Integer.parseInt(str[1]);
-            int dstID = Integer.parseInt(str[2]);
+            long srcID = Long.parseLong(str[1]);
+            long dstID = Long.parseLong(str[2]);
 
-           // System.out.println("time = "+time+" srcID = "+srcID+" dstID= "+dstID);
+            // System.out.println("time = "+time+" srcID = "+srcID+" dstID= "+dstID);
 
             if(time==0) {//if it is the first command
                 //do nothing
