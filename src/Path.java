@@ -13,18 +13,8 @@ public class Path {
         return edges;
     }
 
-    public void resetEdges() {
-        for(Edge e : edges){
-            e.setTraffic(0);
-        }
-    }
-
     public ArrayList<Vertex> getVertices() {
         return vertices;
-    }
-
-    public void setVertices(ArrayList<Vertex> vertices) {
-        this.vertices = vertices;
     }
 
     public void insertEdges(ArrayList<Edge> allEdges){

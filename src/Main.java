@@ -1,8 +1,14 @@
-
+//Mina Beiki - Code : 9831075
 import java.util.* ;
-
+//Input : 1. Enter all needed info .     2.Enter the commands.   3.when finished working with program , enter "done" .
 public class Main {
 
+    /**
+     * Finds a vertex with using the given ID of it . Searches through the arrayList of vertices .
+     * @param id long , id of vertex
+     * @param vertexes ArrayList , vertices
+     * @return vertex found
+     */
     public static Vertex findVertex(long id , ArrayList<Vertex> vertexes){
         for(Vertex v : vertexes){
             if(v.getId()==id){
@@ -12,6 +18,12 @@ public class Main {
         return null ;
     }
 
+    /**
+     * Finds a vertex with using the given distance of it . Searches through the arrayList of vertices .
+     * @param dist double , distance of vertex
+     * @param vertexes ArrayList , vertices
+     * @return vertex found
+     */
     public static Vertex findVertexByDist(double dist , ArrayList<Vertex> vertexes){
         for(Vertex v : vertexes){
             if(v.getDist()==dist){
@@ -21,6 +33,13 @@ public class Main {
         return null ;
     }
 
+    /**
+     * Finds a edge through all the graph by the given vertices of the start and end of the edge (Note that the graph is undirected . )
+     * @param v1 one vertex of the edge
+     * @param v2 another vertex of the edge
+     * @param edges ArrayList of edges
+     * @return Edge found
+     */
     public static Edge findEdge (Vertex v1 , Vertex v2 , ArrayList<Edge> edges){
         for(Edge e : edges){
             if((e.getV1().equals(v1) && e.getV2().equals(v2))||(e.getV2().equals(v1) && e.getV1().equals(v2))){
@@ -30,6 +49,12 @@ public class Main {
         return null ;
     }
 
+    /**
+     * Gets the index of the node in the min heap , via the given distance for that specific vertex in the min heap .
+     * @param heap min heap of distances
+     * @param dist double , distance
+     * @return index of that vertex in min heap
+     */
     public static int getNodeIndex(PriorityQueue<Double> heap , double dist){
         int i = 0 ;
         for(Double d : heap){
@@ -43,14 +68,22 @@ public class Main {
 
     public static void main(String[] args) {
         int n , m ; //n=vertexes , m=edges
-        int traffic ;
+        //implementation of the graph using adj list :
         ArrayList<ArrayList<Vertex>> adjList = new ArrayList<>();
+
+        //HashMap for saving the indexes of vertices in the adjList :
         HashMap<Long,Integer> indexes = new HashMap<>();//id , index ; indexes for adjList
+
         ArrayList<Vertex> vertexes = new ArrayList<>();
         ArrayList<Edge> edges = new ArrayList<>();
         ArrayList<Path> paths = new ArrayList<>();
+
+        //saves the time taken to get to destination for each path
         ArrayList<Double> delayTimes = new ArrayList<>();
+
+        //saves all of the command times given by the user
         ArrayList<Double> times = new ArrayList<>();
+
         HashMap<Vertex,Integer> heapIndexes ;//vertex , index in minHeap
 
         Scanner scanner = new Scanner(System.in);
@@ -102,13 +135,12 @@ public class Main {
             Edge edge = new Edge(0,vertex1,vertex2);
 
             edges.add(edge);
-
-
         }
 
         scanner.nextLine();
-        traffic = 0 ;
 
+        System.out.println("Commands : ");
+        //Getting Commands and processing paths :
         while(scanner.hasNextLine()){
             //set all explored and dist to default
             for(Vertex v : vertexes){
@@ -116,6 +148,10 @@ public class Main {
             }
 
             String line = scanner.nextLine();
+            //if user has entered done , exit .
+            if(line.equals("done")){
+                break;
+            }
             String[] str = line.split(" ");
             double time = Double.parseDouble(str[0]);
             long srcID = Long.parseLong(str[1]);
@@ -150,6 +186,8 @@ public class Main {
             src.setDist(0);
             src.setPrev(null);
             heapIndexes.put(src,0);
+
+            //min heap for distances :
             PriorityQueue<Double> distHeap = new PriorityQueue<>();
 
             distHeap.add(src.getDist());
@@ -159,7 +197,7 @@ public class Main {
                 Vertex v = findVertexByDist(distHeap.peek(),vertexes);
                 v.setExplored(true);
                 //System.out.println(v+" is explored , prev = "+v.getPrev());
-                //update index hashmap :
+                //update index hash map and min heap  :
                 distHeap.remove(v.getDist());
                 heapIndexes.remove(v);
 
@@ -167,6 +205,7 @@ public class Main {
                 for(Vertex w : adjList.get(vIndex)){
                     Edge vwEdge = findEdge(v,w,edges);
                     if(v.getDist() + vwEdge.getWeight() < w.getDist()){
+
                         if(heapIndexes.containsKey(w)){
                             distHeap.remove(w.getDist());
                             heapIndexes.remove(w);
@@ -210,6 +249,7 @@ public class Main {
             System.out.println("////////");
 
         }
+
 
     }
 }
